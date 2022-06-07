@@ -7,8 +7,8 @@ const PORT = 4000;
 const app = express();
 
 // Middelwares
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 // Routers
 app.use("/products", productRouter);
