@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const productRouter = require("./routers/products");
 const categoryRouter = require("./routers/categories");
+const userRouter = require("./routers/users");
 
 const PORT = 4000;
 
@@ -14,6 +15,7 @@ app.use(express.json());
 // Routers
 app.use("/products", productRouter);
 app.use("/categories", categoryRouter);
+app.use("/user", userRouter);
 
 app.get("/", async (req, res) => {
   try {
