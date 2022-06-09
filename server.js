@@ -3,6 +3,7 @@ const cors = require("cors");
 const productRouter = require("./routers/products");
 const categoryRouter = require("./routers/categories");
 const userRouter = require("./routers/users");
+const reviewRouter = require("./routers/reviews");
 
 const PORT = 4000;
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use("/products", productRouter);
 app.use("/categories", categoryRouter);
 app.use("/user", userRouter);
+app.use("/reviews", reviewRouter);
 
 app.get("/", async (req, res) => {
   try {
