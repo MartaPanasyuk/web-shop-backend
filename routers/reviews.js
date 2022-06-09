@@ -25,4 +25,15 @@ router.get("/:productId", async (req, res) => {
   }
 });
 
+//Create new review
+router.post("/", async (req, res) => {
+  try {
+    const { name, description, productId } = req.body;
+    const newComment = await Review.create({ name, description, productId });
+    res.send(newComment);
+  } catch (e) {
+    console.log(e.message);
+  }
+});
+
 module.exports = router;
