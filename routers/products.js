@@ -6,9 +6,17 @@ const Category = require("../models").category;
 
 // Get all products
 router.get("/", async (req, res, next) => {
+  const limit = req.params.limit;
   try {
-    const products = await Product.findAll();
+    const products = await Product.findAndCountAll({
+      limit: 5,
+      offset: 0,
+      // where: {
+      //   categoryId: 4,
+      // },
+    });
     res.send(products);
+    console.log(products);
   } catch (e) {
     next(e);
   }
